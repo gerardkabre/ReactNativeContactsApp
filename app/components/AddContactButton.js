@@ -3,6 +3,7 @@ import { View, Text, TouchableHighlight } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 
+
 const styles = EStyleSheet.create({
   row: {
     flexDirection: 'row',
@@ -12,17 +13,14 @@ const styles = EStyleSheet.create({
     backgroundColor: 'green'
   },
   text: {
-      color: 'white',
-
+    color: 'white'
   }
 });
 
 const AddContactButton = ({ text, onPress }) => (
-  <TouchableHighlight onPress={() => {}} underlayColor={'#6bf442'}>
-    <View style={styles.row}>
-      <Text style={styles.text}>NEW CONTACT</Text>
-    </View>
-  </TouchableHighlight>
+  <View style={styles.row}>
+    <Text style={styles.text}>NEW CONTACT</Text>
+  </View>
 );
 
 export default AddContactButton;
