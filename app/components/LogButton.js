@@ -4,16 +4,26 @@ import EStylsheet from 'react-native-extended-stylesheet';
 
 const styles = EStylsheet.create({
   button: {
+    marginTop: 20,
     color: '#fff',
-    paddingHeight: 14,
-    paddingWidth: 5
+    paddingVertical: 14,
+    paddingHorizontal: 5,
+    borderColor: 'white',
+    borderWidth: 1,
+    width: 200
+  },
+  text: {
+    color: 'white',
+    
+
+
   }
 });
-
+// //  { (action = 'login' ? <link path="LogInScreen" /> : <link path="RegisterScreen" />) } 
 const LogButton = ({ action }) => (
-  <TouchableHighlight style={styles.button}>
-    <Text>{action}</Text>
-    {(action = 'login' ? <link path="LogInScreen" /> : <link path="RegisterScreen" />)}
+  <TouchableHighlight  onPress={() => {}} style={styles.button}>
+    <Text style={styles.text}>{action}</Text>
+   
   </TouchableHighlight>
 );
 
