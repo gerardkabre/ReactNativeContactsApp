@@ -2,8 +2,6 @@ import React from 'react';
 import { View, Text, TouchableHighlight } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
-
-
 const styles = EStyleSheet.create({
   row: {
     flexDirection: 'row',
@@ -18,9 +16,9 @@ const styles = EStyleSheet.create({
 });
 
 const AddContactButton = ({ text, onPress }) => (
-  <View style={styles.row}>
-    <Text style={styles.text}>NEW CONTACT</Text>
-  </View>
+  <TouchableHighlight style={styles.row} onPress={onPress}>
+    <Text style={styles.text}>{text}</Text>
+  </TouchableHighlight>
 );
 
 export default AddContactButton;
