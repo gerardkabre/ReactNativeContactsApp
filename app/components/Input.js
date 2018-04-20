@@ -19,11 +19,11 @@ const styles = EStyleSheet.create({
   }
 });
 
-const Input = ({ text, onPress }) => (
-  <View style={{alignItems: 'center'}}>
-  <View style={styles.container}>
-    <TextInput style={styles.input} />
-  </View>
+const Input = ({ text, onPress, value, handleTextChange }) => (
+  <View style={{ alignItems: 'center' }}>
+    <View style={styles.container}>
+      <TextInput style={styles.input} value={value} onChangeText={handleTextChange} />
+    </View>
   </View>
 );
 

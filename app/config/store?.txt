@@ -1,0 +1,16 @@
+
+APP STATE
+----------
+user: {
+    name,
+    email,
+    password,
+    loggedIn
+}
+contacts: {
+    { name, second name, number },
+    { name, second name, number },
+    { name, second name, number },
+    { name, second name, number },
+    { name, second name, number },
+}
