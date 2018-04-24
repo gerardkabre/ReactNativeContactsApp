@@ -1,1 +1,15 @@
-{}
+{
+  "contact": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      },
+      "secondName": {
+        "appearance": ""
+      },
+      "phone": {
+        "appearance": ""
+      }
+    }
+  }
+}
