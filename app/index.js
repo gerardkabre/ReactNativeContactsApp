@@ -2,7 +2,7 @@ import React from 'react';
 import { NativeRouter, Route, Link, Switch } from 'react-router-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import { View, Text } from 'react-native';
-import connect from 'react-redux';
+import { connect } from 'react-redux';
 
 import Home from './screens/Home';
 import ContactList from './screens/ContactList';
@@ -17,11 +17,11 @@ EStyleSheet.build({
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
-    render={props => (fakeAuth.isAuthenticated === true ? <Component {...props} /> : <Redirect to="/login" />)}
+    render={props => (props.isAuthenticated === true ? <Component {...props} /> : <Redirect to="/login" />)}
   />
 );
 
-export default () => (
+const index = () => (
   <Container>
     <NativeRouter>
       <View style={{ flex: 1 }}>
@@ -34,9 +34,17 @@ export default () => (
         <Switch>
           <PrivateRoute exact path="/" component={ContactList} />
           <PrivateRoute path="/createContact" component={NewContact} />
-          <Route exact path="/login" component={Home} />
+          <Route path="/login" component={Home} />
         </Switch>
       </View>
     </NativeRouter>
   </Container>
 );
+
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.auth.isAuthenticated
+  };
+};
+
+export default connect(mapStateToProps)(index);

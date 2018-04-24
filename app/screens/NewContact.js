@@ -5,7 +5,7 @@ import Container from '../components/Container';
 import AddContactButton from '../components/AddContactButton';
 import Input from '../components/Input';
 
-import { createContact } from '../actions/contacts';
+import { contactCreate } from '../actions/contacts';
 
 class NewContact extends React.Component {
   state = {
@@ -15,8 +15,8 @@ class NewContact extends React.Component {
   };
 
   handleButtonPress = () => {
-    console.log(
-      createContact({
+    this.props.dispatch(
+      contactCreate({
         name: this.state.name,
         secondName: this.state.secondName,
         number: this.state.number
@@ -41,4 +41,4 @@ class NewContact extends React.Component {
     );
   }
 }
-export default NewContact;
+export default connect()(NewContact);
