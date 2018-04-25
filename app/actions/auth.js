@@ -26,23 +26,16 @@ function loginError(message) {
 export function loginUser(user) {
   return dispatch => {
     dispatch(loginRequest(user));
-
     return fetch('http://localhost:3001/sessions/create', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: `username=${user.username}&password=${user.password}`
     })
-      .then(response => response.json().then(user => ({ user, response })))
-      .then(({ user, response }) => {
-        if (!response.ok) {
-          dispatch(loginError(message));
-          return Promise.reject(user);
-        } else {
-          localStorage.setItem('id_token', user.id_token);
-          localStorage.setItem('id_token', user.access_token);
-          dispatch(loginSuccess(user));
-        }
+      .then(response => response.json())
+      .then(response => {
+        AsyncStorage.setItem('id_token', response.user.id_token);
+        dispatch(loginSuccess(user));
       })
-      .catch(err => console.log('Error: ', err));
+      .catch(err => dispatch(loginError(message)));
   };
 }
