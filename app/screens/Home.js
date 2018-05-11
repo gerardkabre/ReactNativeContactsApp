@@ -9,8 +9,9 @@ export default () => (
     <View style={{ alignItems: 'center' }}>
       <StatusBar translucent={false} barStyle="light-content" />
       <Logo />
-      <LogButton action="login" />
-      <LogButton action="register" />
+      <LogButton goTo="login" />
+      <LogButton goTo="register" />
     </View>
   </Container>
 );
+

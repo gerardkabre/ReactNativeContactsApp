@@ -1,5 +1,5 @@
 export const FETCH_CONTACTS_START = 'FETCH_CONTACTS_START';
-export const FETCH_CONTACTS_RECEIVE = 'FETCH_CONTACTS_RECEIVE';
+export const FETCH_CONTACTS_SUCCESS = 'FETCH_CONTACTS_SUCCESS';
 export const FETCH_CONTACTS_ERROR = 'FETCH_CONTACTS_ERROR';
 export const CONTACT_CREATE = 'CONTACTS_CREATE';
 
@@ -8,8 +8,8 @@ export const fetchContacts = user => ({
   userId
 });
 
-export const fetchContactsReceive = contacts => ({
-  type: FETCH_CONTACTS_RECEIVE,
+export const fetchContactsSuccess = contacts => ({
+  type: FETCH_CONTACTS_SUCCESS,
   contacts
 });
 
@@ -34,7 +34,7 @@ export function getContacts(user) {
     })
       .then(response => response.json())
       .then(response => {
-        dispatch(fetchContactsReceive(response));
+        dispatch(fetchContactsSuccess(response));
       })
       .catch(err => dispatch(fetchContactsError(err)));
   };

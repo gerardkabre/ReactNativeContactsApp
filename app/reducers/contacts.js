@@ -1,5 +1,5 @@
 import { FETCH_CONTACTS_START } from '../actions/contacts';
-import { FETCH_CONTACTS_RECEIVE } from '../actions/contacts';
+import { FETCH_CONTACTS_SUCCESS } from '../actions/contacts';
 import { FETCH_CONTACTS_ERROR } from '../actions/contacts';
 import { CONTACT_CREATE } from '../actions/contacts';
 
@@ -14,7 +14,7 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case FETCH_CONTACTS_START:
       return { ...state, isFetching: true };
-    case FETCH_CONTACTS_RECEIVE:
+    case FETCH_CONTACTS_SUCCESS:
       return { ...state, isFetching: false, fetched: true, contacts: action.contacts };
     case FETCH_CONTACTS_ERROR:
       return { ...state, isFetching: false, error: action.error };

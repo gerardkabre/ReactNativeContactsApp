@@ -10,8 +10,6 @@ import Separator from '../components/Separator';
 
 import AddContactButton from '../components/AddContactButton';
 
-import data from '../fakeData';
-
 class ContactList extends Component {
   state = {
     redirect: false
@@ -20,15 +18,14 @@ class ContactList extends Component {
   handleButtonPress = () => this.setState({ redirect: true });
 
   render() {
-    if (this.state.redirect) {
-      return <Redirect push to="/createContact" />;
-    }
+    if (this.state.redirect) return <Redirect push to="/createContact" />;
+
     return (
       <Container>
         <View style={{ flex: 1 }}>
           <StatusBar translucent={false} barStyle="light-content" />
           <FlatList
-            data={data}
+            data={{ name: 'gerard', otro: 'blabal' }}
             // keyExtractor={item => item}
             renderItem={({ item }) => <Contact text={item} />}
             ItemSeparatorComponent={Separator}

@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableHighlight } from 'react-native';
+import { Link } from 'react-router-native';
+
 import EStylsheet from 'react-native-extended-stylesheet';
 
 const styles = EStylsheet.create({
@@ -13,18 +15,14 @@ const styles = EStylsheet.create({
     width: 200
   },
   text: {
-    color: 'white',
-    
-
-
+    color: 'white'
   }
 });
-// //  { (action = 'login' ? <link path="LogInScreen" /> : <link path="RegisterScreen" />) } 
-const LogButton = ({ action }) => (
-  <TouchableHighlight  onPress={() => {}} style={styles.button}>
-    <Text style={styles.text}>{action}</Text>
-   
-  </TouchableHighlight>
+
+const LogButton = ({ goTo }) => (
+  <Link style={styles.text} to={`/${goTo}`} component={TouchableHighlight}>
+    <Text>{goTo}</Text>
+  </Link>
 );
 
 export default LogButton;
